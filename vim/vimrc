@@ -1,0 +1,70 @@
+set nocompatible "Required
+
+set laststatus=2 " vim-airline doesn't appear until i create a new split
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set shortmess=at        " disable welcome message        
+
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Let Vundle mange itselft.
+Plugin 'gmarik/Vundle.vim'
+
+" Plugins
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/syntastic'
+
+" Color schemes
+Plugin 'tomasr/molokai'
+Plugin 'flazz/vim-colorschemes'
+
+" Configuration
+" YouCompleteMe
+let g:ycm_python_binary_path = '/usr/bin/python'
+
+" vim-airline
+let g:airline_theme='zenburn'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+
+" Required, plugins available after.
+call vundle#end()
+filetype plugin indent on
