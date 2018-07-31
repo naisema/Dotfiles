@@ -1,5 +1,5 @@
 set nocompatible "Required
-
+set encoding=utf-8
 set laststatus=2 " vim-airline doesn't appear until i create a new split
 
 set tabstop=4
